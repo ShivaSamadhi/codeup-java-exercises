@@ -80,7 +80,7 @@ public class ControlFlowExercises {
                 break;
             // for >= 50 and <60
             case 5:
-                grade = "E";
+                grade = "F";
                 break;
             // for < 50
             default:
