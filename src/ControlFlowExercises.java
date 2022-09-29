@@ -48,13 +48,47 @@ public class ControlFlowExercises {
 //            }
 //        };
 
-        DecimalFormat deci = new DecimalFormat("0");
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("What number would you like to go up to: ");
-        int number = Integer.parseInt(scanner.next());
-        System.out.println("Number\tSquared\tCubed\t");
-        for (int i=1;  i<= number; i++)
-            System.out.println(deci.format(Math.pow(i,1)) + "    |\t"+deci.format(Math.pow(i,2)) + "    |\t"+deci.format(Math.pow(i,3)));
+//        DecimalFormat deci = new DecimalFormat("0");
+//        Scanner scanner = new Scanner(System.in);
+//        System.out.print("What number would you like to go up to: ");
+//        int number = Integer.parseInt(scanner.next());
+//        System.out.println("Number\tSquared\tCubed\t");
+//        for (int i=1;  i<= number; i++)
+//            System.out.println(deci.format(Math.pow(i,1)) + "    |\t"+deci.format(Math.pow(i,2)) + "    |\t"+deci.format(Math.pow(i,3)));
 
+        Scanner scanner2 = new Scanner(System.in);
+        System.out.print("Enter a numerical grade (0-100): ");
+        int score = Integer.parseInt(scanner2.next());
+        String grade = null;
+        switch(score/10) {
+            // for >= 90
+            case 10:
+            case 9:
+                grade = "A";
+                break;
+            // for >= 80 and <90
+            case 8:
+                grade = "B";
+                break;
+            // for >= 70 and <80
+            case 7:
+                grade = "C";
+                break;
+            // for >= 60 and <70
+            case 6:
+                grade = "D";
+                break;
+            // for >= 50 and <60
+            case 5:
+                grade = "E";
+                break;
+            // for < 50
+            default:
+                grade = "F";
+                break;
+        }
+
+        // display result
+        System.out.println("Grade = " + grade);
     }
 }
