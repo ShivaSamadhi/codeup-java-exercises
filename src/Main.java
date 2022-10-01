@@ -130,6 +130,32 @@ public class Main {
             return s.toUpperCase() + "!!!";
         }
 
+//METHOD OVERLOADING
+        //Method overloading is defining multiple methods with the same name, but with different parameter type, parameter order, or number of parameters. Overloaded methods can call other versions of themselves, and are commonly used to provide default values for arguments.
+
+        // version 1
+        public static void sayHello(int times) {
+            for (int i = 0; i < times; i += 1) {
+                sayHello();
+            }
+        }
+        // version 2
+        public static void sayHello() {
+            sayHello("Hello", "World");
+        }
+        // version 3
+        public static void sayHello(String name) {
+            sayHello("Hello", name);
+        }
+        // version 4
+        public static void sayHello(String greeting, String name) {
+            System.out.println(greeting + ", " name "!");
+        }
+
+        //Version 2 will run because we are calling the method with no arguments, and version two is defined with no parameters. The method defined in version 2 will call sayHello again, but with two arguments, which will invoke version 4
+        //Notice that versions 2 and 3 are calling version 4. This is an example of using method overloading to provide default values for methods. The most generic version (version 4) of our method needs to be passed a greeting and a name, but we can use method overloading to provide default values of "Hello" and "World" if only one, or no arguments are passed.
+        //We could call version 3 by passing a single String argument, Which will again invoke version 4
+        //Even though both version 1 and 3 are defined with a single parameter, the parameter's type is different for both of them. Because we are now passing a value of type int, version 1 will be invoked
 
     }
 }
