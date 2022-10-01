@@ -104,9 +104,9 @@ public class Main {
         //// a return statement, if a return type is declared
         //}
 
-        public static String sayHello(String xString) {
-            return String.format("Hello, %s!", xString);
-        }
+//        public static String sayHello(String xString) {
+//            return String.format("Hello, %s!", xString);
+//        }
 
         //Public: This defines whether or not other classes can see this method. For now, just put public here.
         //Static: the presence of this keyword defines that the method belongs to the class, as opposed to instances of it. For now, we will define all of our methods as static. We'll explore this concept in more detail in the next lesson.
@@ -118,45 +118,82 @@ public class Main {
         //sayHello: the name of the method. Method names follow the same rules as variable names.
         //(String ...): the parameter the method accepts. A method can be defined with no parameters, one parameter (like in our example), or multiple parameters (separated by commas). A type must be specified for each parameter.
 
-        public static void sayHello(String greeting, String name) {
-            System.out.printf("%s, %s!\n", greeting, name);
-        }
-
-        public static int returnThree() {
-            return 3;
-        }
-
-        public static String shout(String s) {
-            return s.toUpperCase() + "!!!";
-        }
+//        public static void sayHello(String greeting, String name) {
+//            System.out.printf("%s, %s!\n", greeting, name);
+//        }
+//
+//        public static int returnThree() {
+//            return 3;
+//        }
+//
+//        public static String shout(String s) {
+//            return s.toUpperCase() + "!!!";
+//        }
 
 //METHOD OVERLOADING
         //Method overloading is defining multiple methods with the same name, but with different parameter type, parameter order, or number of parameters. Overloaded methods can call other versions of themselves, and are commonly used to provide default values for arguments.
 
         // version 1
-        public static void sayHello(int times) {
-            for (int i = 0; i < times; i += 1) {
-                sayHello();
-            }
-        }
-        // version 2
-        public static void sayHello() {
-            sayHello("Hello", "World");
-        }
-        // version 3
-        public static void sayHello(String name) {
-            sayHello("Hello", name);
-        }
-        // version 4
-        public static void sayHello(String greeting, String name) {
-            System.out.println(greeting + ", " name "!");
-        }
+//        public static void sayHello(int times) {
+//            for (int i = 0; i < times; i += 1) {
+//                sayHello();
+//            }
+//        }
+//        // version 2
+//        public static void sayHello() {
+//            sayHello("Hello", "World");
+//        }
+//        // version 3
+//        public static void sayHello(String name) {
+//            sayHello("Hello", name);
+//        }
+//        // version 4
+//        public static void sayHello(String greeting, String name) {
+//            System.out.println(greeting + ", " name "!");
+//        }
 
         //Version 2 will run because we are calling the method with no arguments, and version two is defined with no parameters. The method defined in version 2 will call sayHello again, but with two arguments, which will invoke version 4
         //Notice that versions 2 and 3 are calling version 4. This is an example of using method overloading to provide default values for methods. The most generic version (version 4) of our method needs to be passed a greeting and a name, but we can use method overloading to provide default values of "Hello" and "World" if only one, or no arguments are passed.
         //We could call version 3 by passing a single String argument, Which will again invoke version 4
         //Even though both version 1 and 3 are defined with a single parameter, the parameter's type is different for both of them. Because we are now passing a value of type int, version 1 will be invoked
 
+//PASSING PARAMETERS
+        //In Java, parameters are passed by value. This means that a copy of the value passed is created inside of a method, and that reassigning a value inside of a method will not change it outside of the method.
+
+//        public static void changeString(String s) {
+//            s = "Wub a lub a dub dub";
+//        }
+//
+//        public static void main(String[] args) {
+//            String changeMe = "hello codeup!";
+//
+//            changeString(changeMe);
+//
+//            System.out.println(changeMe);
+//        }
+        //First we define a method named changeString that takes in a String and re-assigns it. When we call changeString inside of our main method, we pass it the changeMe variable. Even though the String variable inside of changeString is re-assigned, the changeMe variable will still have the same value after the method call.
+
+//RECURSION
+        //One problem solving technique in programming is called recursion. Recursion is a concept that aims to solve a problem by dividing it into smaller chunks. The core idea of recursion is creating a method that calls itself, but with different parameters than were originally passed.
+        //Whenever you are writing a recursive method, you must make sure to have a base case or stop condition so that the method does not call itself over and over again indefinitely.
+        //While you might be able to quickly imagine how to output the numbers from 5 to 1 using a loop, let's do this with recursion to illustrate the concept.
+
+//        public static void count(int n) {
+//            if (n <= 0) {
+//                System.out.println("All done!");
+//                return;
+//            }
+//            System.out.println(n);
+//            count(n - 1);
+//        }
+//
+//        public static void main(String[] args) {
+//            count(5);
+//        }
+
+        //The method count is recursive because it calls itself, and will continue to call itself with an argument of 1 less that the value that was originally passed. The if statement and the condition n <= 0 is our condition for stopping the recursion. Without the if to check if we are done counting, we would have the recursive equivalent of an infinite loop, a stack overflow error1.
+
+        return "Done";
     }
 }
 
