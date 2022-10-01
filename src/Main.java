@@ -3,7 +3,7 @@ import java.util.Arrays;
 import java.util.Date;
 
 public class Main {
-    public static void main(String[] args) {
+    public static String main(String[] args) {
 //PRIMITIVE TYPES
         byte age = 30;
         //byte can store numbers up from -128 to 127
@@ -96,9 +96,39 @@ public class Main {
         int yInt3 = Integer.parseInt(xString) + 2;
         //there are other wrapper classes such as Short.parseShort() Float.parseFloat() and so on with a similar syntax structure
 
+//METHODS
+        //Methods are similar to functions in JS where a series of statements are used to accomplish a specific task. The basic syntax for most methods is as follows:
 
+        //public static returnType methodName([param1[, param2[, ...]]) {
+        //// the statements of the method
+        //// a return statement, if a return type is declared
+        //}
 
+        public static String sayHello(String xString) {
+            return String.format("Hello, %s!", xString);
+        }
 
+        //Public: This defines whether or not other classes can see this method. For now, just put public here.
+        //Static: the presence of this keyword defines that the method belongs to the class, as opposed to instances of it. For now, we will define all of our methods as static. We'll explore this concept in more detail in the next lesson.
+
+        //String: this is the return type of the method. In Java, all methods must define the type of the value they will return. If a method does not return anything, the special keyword void is used here.
+        // If a method defines a return type, it must have a return statement. It is a compile time error for a method that defines a return type to not return anything, or to return a value of a type other than the one that is specified.
+        // If a method's return type is void, it is a compile time error to return anything inside of the method; however, methods with a void return type can still use the return keyword to exit the method early.
+
+        //sayHello: the name of the method. Method names follow the same rules as variable names.
+        //(String ...): the parameter the method accepts. A method can be defined with no parameters, one parameter (like in our example), or multiple parameters (separated by commas). A type must be specified for each parameter.
+
+        public static void sayHello(String greeting, String name) {
+            System.out.printf("%s, %s!\n", greeting, name);
+        }
+
+        public static int returnThree() {
+            return 3;
+        }
+
+        public static String shout(String s) {
+            return s.toUpperCase() + "!!!";
+        }
 
 
     }
