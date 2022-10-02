@@ -1,9 +1,10 @@
 import java.awt.*;
+import java.text.NumberFormat;
 import java.util.Arrays;
 import java.util.Date;
 
 public class Main {
-    public static String main(String[] args) {
+    public static void main(String[] args) {
 //PRIMITIVE TYPES
         byte age = 30;
         //byte can store numbers up from -128 to 127
@@ -193,7 +194,15 @@ public class Main {
 
         //The method count is recursive because it calls itself, and will continue to call itself with an argument of 1 less that the value that was originally passed. The if statement and the condition n <= 0 is our condition for stopping the recursion. Without the if to check if we are done counting, we would have the recursive equivalent of an infinite loop, a stack overflow error1.
 
-        return "Done";
+//NUMBER FORMATTING
+        //The number format class in java is an abstract class meaning that it cannot be instantiated using the 'new' keyword, instead we use the getCurrencyInstance or getPercentageInstance methods. additionally this class is used to change the formatting of number into things like currency or percentages.
+
+        NumberFormat currency = NumberFormat.getCurrencyInstance();
+        String result = currency.format(1234567.891);
+
+        String percent = NumberFormat.getPercentInstance().format(.03);
+
+//READING INPUT
     }
 }
 
