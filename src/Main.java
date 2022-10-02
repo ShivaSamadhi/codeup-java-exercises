@@ -233,7 +233,77 @@ public class Main {
         String mortgageFormatted = NumberFormat.getCurrencyInstance().format(mortgage);//Here the number format of the mortgage variable (currently a double) is converted to a currency format and stored within a string
         System.out.printf("Mortgage: %s/month", mortgageFormatted);//The monthly payment is displayed in the terminal with proper formatting
 
+        //the issue with this calculator is that is does not have any way to validate that the input it receives are valid inputs. this will be fixed with conditional statements and control flow
 
+//CONTROL FLOW
+        //Conditionals and logical operators help control the flow of data thru a java program. These are very similar to what has already been learned in JS
+
+        int income = 120_000;
+        boolean hasHighIncome = (income > 100_000);
+
+        String className = income > 100_000 ? "First" : "Economy";
+
+        String role = "admin";
+        switch (role) {
+            case "admin":
+                System.out.println("Youre an admin");
+                break;
+            case "moderator":
+                System.out.println("Youre a moderator");
+                break;
+            default:
+                System.out.println("Youre a guest");
+        }
+
+        //FizzBuzz Exercise
+        //One important note about the nature of if statements: it is best practice to place the most specific of conditions at the top of the statement and the most general at the bottom of the statement.
+        Scanner scanner3 = new Scanner(System.in);
+        System.out.print("Number: ");
+        int number = scanner3.nextInt();
+
+        if (number % 5 == 0 && number % 3 == 0) //If we were to place this condition at the bottom of the statement, this block of code would never be executed because the conditions above it would be resolved first thus giving the computer no reason to evaluate it. In this case any number that is divisible by 5 & 3 would only print Fizz or Buzz instead of FizzBuzz
+            System.out.println("FizzBuzz");
+        else if (number % 5 == 0)
+            System.out.println("Fizz");
+        else if (number % 3 == 0)
+            System.out.println("Buzz");
+        else
+            System.out.println(number);
+
+        //For Loop
+        for (int i = 0; i < 5; i++)
+            System.out.println("Hello World");
+
+        //While Loop
+        Scanner scanner4 = new Scanner(System.in); //create scanner outside the while loop so a new scanner is not created on each iteration of the loop
+        String input = "";
+        while (!input.equals("quit")) { //logical operators cannot be used on reference types. Each reference type has its own methods that can be used to make comparisons. In this case if the string called input does not have a value that equals "quit", our loop will keep running
+            //because of that fact that as soon as the user types quit, the loop will end, we can also set the condition of this while loop to true. Make sure the loop has a break if this syntax is used
+            System.out.print("Input: ");
+            input = scanner4.next().toLowerCase(); //because out input is a string, we want to make sure that our code can recognize the string "quit" regardless of its casing format, so we can chain the toLowerCase method to the scanner call
+            if (input.equals("pass"))
+                continue; //unlike break which immediately ends a loop, continue essentially restarts the loop from the beginning. Here if the user inputs pass, the loop starts over and prompts them for an input
+            if (input.equals("quit"))
+                break;//this if statement allows us to only print the input into the terminal if it is not equal to quit. If it is equal to quit, we immediately break out of the loop making sure that "quit" is not printed back into the console.
+            System.out.println((input));
+        }
+        //the best use case for while loops is when we are unsure how many times we need a loop to run before some particular condition is met. This is different from a for loop where we set the number of loops ourselves
+
+        //Do-While
+        do{
+            System.out.print("Input: ");
+            input = scanner4.next().toLowerCase();
+            System.out.println((input));
+        } while(!input.equals("quit"));
+        //do-while loops are identical to while loops but with the condition that the code has to execute at least once. this is because the code is ran before the condition is checked. In most cases a regular while loop is preferred
+
+        //For-Each Loop
+        String[] fruits = {"apple", "mango", "orange"};
+        for (String fruit : fruits)
+            System.out.println(fruit);
+        //For-Each loops make it easier to iterate across arrays but it has a some limitations in comparison to a for loop.
+        //First, for-each is forward only... Meaning that we cannot start the loop at the end of the array and move backwards which would be easy to do in a regular for loop
+        //Second, we dont have access to the individual indexes of the array like we would with a for loop
     }
 }
 
