@@ -2,6 +2,7 @@ import java.awt.*;
 import java.text.NumberFormat;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -203,6 +204,36 @@ public class Main {
         String percent = NumberFormat.getPercentInstance().format(.03);
 
 //READING INPUT
+//        Scanner scanner = new Scanner(System.in); //The scanner class allows us to take in user input from various locations, in this example takes input from the terminal
+//        System.out.print("Age: "); //This line prints a label within the terminal for the input field so the user knows what to input
+//        byte age3 = scanner.nextByte(); //Here the scanner takes in the information that was input into the terminal. In this case it is expecting the input to be a byte. from here the data can be used to run functions
+//        System.out.printf("Your are %s", age3); //using print format, we can display this information back to the user
+
+//Mortgage Calculator Exercise
+        final byte MONTHS_IN_YEAR = 12; //creates a constant for the number of months in a year
+        final byte PERCENT = 100; //creates a constant for the percentages
+        //Declaring these values in a const makes the overall code more readable because it makes it clear what each value represents and why it is n=being used in the equations
+
+        Scanner scan = new Scanner(System.in); //new scanner for user input from terminal
+
+        System.out.print("Principal: "); //Label for principal value
+        int principal = scan.nextInt(); //Initializing int var to store the value of the principal, which will most likely be an int
+
+        System.out.print("Annual Interest Rate: "); //Label for annual interest rate value
+        float annualInterest = scan.nextFloat(); //Initializing float var to store the value of the interest rate, which will most likely be a float
+        float monthlyInterest = annualInterest / PERCENT / MONTHS_IN_YEAR; //this formula allows us to convert the annual interest rate into a monthly interest rate. The annualInterest (a float decimal representing a percentage) will be divided by 100 to convert it to pure decimal form, then this decimal is divided by 12 to show the interest rate on a monthly scale
+
+        System.out.print("Period (Years): "); //Label for the period of the mortgage in years
+        byte years = scan.nextByte(); //Initializing a byte var for the input value for years. Since most mortgages only last 30 years, we store this value as a byte.
+        int numberOfPayments = years * MONTHS_IN_YEAR; //This formula converts the given number of years into its equivalent value in months by multiplying by 12. This int represents the total number of payments due over the life of the mortgage
+
+        double mortgage = principal * (monthlyInterest * Math.pow(1 + monthlyInterest, numberOfPayments))
+                                    / (Math.pow(1 + monthlyInterest, numberOfPayments) - 1); //This is the formula used to calculate monthly mortgage payments
+
+        String mortgageFormatted = NumberFormat.getCurrencyInstance().format(mortgage);//Here the number format of the mortgage variable (currently a double) is converted to a currency format and stored within a string
+        System.out.printf("Mortgage: %s/month", mortgageFormatted);//The monthly payment is displayed in the terminal with proper formatting
+
+
     }
 }
 
