@@ -304,6 +304,7 @@ public class Main {
         //For-Each loops make it easier to iterate across arrays but it has a some limitations in comparison to a for loop.
         //First, for-each is forward only... Meaning that we cannot start the loop at the end of the array and move backwards which would be easy to do in a regular for loop
         //Second, we dont have access to the individual indexes of the array like we would with a for loop
+
     }
 }
 
