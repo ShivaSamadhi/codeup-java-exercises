@@ -59,6 +59,17 @@ public class Udemy {
         return -1;
     }
 
+    public static int factorial(int num){
+        if(num == 1){
+            System.out.printf("%s! = 1", num);
+            return 1;
+        }
+        else {
+            System.out.printf("%s! = %s");
+            return num * factorial(num - 1);
+        }
+    }
+
     public static void main(String[] args) {
 
         int calculatedScore = calculatedScore(true, 5000, 1, 200);
