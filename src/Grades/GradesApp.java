@@ -34,20 +34,26 @@ public class GradesApp {
         students.put("AtomAnt", anthony);
 
         String seeStudents = "y";
-        Scanner scanner = new Scanner(System.in);
-        System.out.printf("Welcome To The Grading Portal.%nBelow Is A List Of GitHub Usernames For Available Students: ");
-        System.out.printf("%s", students.keySet());
-        System.out.printf("Enter The Username Of The Student You Want More Information On: ");
-        String username = scanner.nextLine();
+        do {
+            Scanner scanner = new Scanner(System.in);
+            System.out.printf("Welcome To The Grading Portal.%nBelow Is A List Of GitHub Usernames For Available Students: %n");
+            System.out.printf("%s%n", students.keySet());
+            System.out.printf("Enter The Username Of The Student You Want More Information On: %n");
+            String username = scanner.nextLine();
 
-        if(students.get(username) == null){
-            System.out.printf("%s Does Not Match Any Of Our Records", username);
+            if (students.get(username) == null) {
+                System.out.printf("%s Does Not Match Any Of Our Records", username);
+            } else {
+                System.out.printf("%s Git Username: %s", students.get(username), username);
+            }
+
+            System.out.printf("%nContinue To New Student? y/n %n");
+            seeStudents = scanner.nextLine();
         }
-        else {
-            System.out.printf("%s Git Username: %s", students.get(username), username);
+        while(seeStudents.equalsIgnoreCase("y"));
+
+        if (seeStudents.equalsIgnoreCase("n")){
+            System.out.printf("Thank You For Using The Grading Portal");
         }
-
-
-
     }
 }

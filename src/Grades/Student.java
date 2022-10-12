@@ -16,7 +16,10 @@ public class Student {
     public String getName() {
         return name;
     }
-
+    public String toString(){
+         String student = String.format("Name: %s | Average: %.2f |", this.name, getAverageGrade());
+        return student;
+    }
     public void setName(String name) {
         this.name = name;
     }
