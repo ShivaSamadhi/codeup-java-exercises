@@ -5,7 +5,8 @@ import java.util.Scanner;
 public class Input {
     private static Scanner scanner = new Scanner(System.in);
 
-    public String getString(){
+    public static String getString(String prompt){
+        System.out.println(prompt);
         return scanner.nextLine();
     }
 
@@ -25,7 +26,14 @@ public class Input {
     }
 
     public static int getInt(){
-        return scanner.nextInt();
+        try {
+            return Integer.parseInt(getString("Input A Number: "));
+        }
+        catch (Exception e){
+            System.out.println("NaN");
+            return getInt();
+        }
+        //return scanner.nextInt();
     }
 
     public static double getDouble(double min, double max){
@@ -38,6 +46,13 @@ public class Input {
     }
 
     public static double getDouble(){
-        return scanner.nextDouble();
+        try {
+            return Double.parseDouble(getString("Input A Number: "));
+        }
+        catch (Exception e){
+            System.out.println("NaN");
+            return getDouble();
+        }
+        //return scanner.nextDouble();
     }
 }
