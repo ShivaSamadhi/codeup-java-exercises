@@ -16,4 +16,10 @@ private String name;
     public void sayHello(){
         System.out.printf("Hello, %s", name);
     }
+
+    public static void main(String[] args) {
+        Person person = new Person("Ramaj");
+        System.out.printf("%s%n", person.getName());
+        person.sayHello();
+    }
 }
