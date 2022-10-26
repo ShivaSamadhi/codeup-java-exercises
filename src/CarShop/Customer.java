@@ -4,7 +4,6 @@ public class Customer implements Describable {
     private String firstName;
     private String lastName;
 
-    private Car newCar;
     public Customer(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -26,9 +25,10 @@ public class Customer implements Describable {
         this.lastName = lastName;
     }
 
+
+
     @Override
     public String describe(String details) {
-        return String.format("Hey there %s %s, it looks like your %s, %s, %s, %s is ready to go!", firstName, lastName, newCar.getColor(), newCar.getYear(), newCar.getMake(), newCar.getModel());
+        return String.format("Hey there %s %s, it looks like your %s is ready to go!", firstName, lastName, details);
     }
-
 }
